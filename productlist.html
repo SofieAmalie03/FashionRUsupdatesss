@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FashionRUs — Produkter</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html" aria-label="FashionRUs Home">
+          <div class="logo">Fashion<span class="r">R</span>Us</div>
+        </a>
+
+        <nav class="nav" aria-label="Top navigation">
+          <a href="./index.html">Categories</a>
+          <a href="./index.html">Brands</a>
+          <a href="./index.html">Seasons</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="search" role="search">
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path
+                d="M16.3 16.3 21 21"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            <input type="search" placeholder="Search" aria-label="Search" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="section-head">
+        <h2>Produkter</h2>
+      </div>
+
+      <section class="product_list_container">
+        <!-- Produkt 1 -->
+        <a class="product-card" href="./product.html">
+          <div class="badges">
+            <span class="badge">NEW</span>
+          </div>
+
+          <div class="product-media">
+            <img
+              src="https://kea-alt-del.dk/t7/images/webp/640/1573.webp"
+              alt="Capri tights"
+            />
+          </div>
+
+          <div class="product-body">
+            <h3 class="product-name">Capri Training Tights — Graphite</h3>
+            <p class="product-meta">Nike • Tights</p>
+            <div class="price-row">
+              <span class="price">DKK 599</span>
+            </div>
+            <span class="btn primary">Se produkt</span>
+          </div>
+        </a>
+
+        <!-- Produkt 2 -->
+        <a class="product-card" href="./product.html">
+          <div class="badges">
+            <span class="badge sale">-34%</span>
+          </div>
+
+          <div class="product-media">
+            <img
+              src="https://kea-alt-del.dk/t7/images/webp/640/1525.webp"
+              alt="Backpack"
+            />
+          </div>
+
+          <div class="product-body">
+            <h3 class="product-name">PUMA Core Backpack — Black</h3>
+            <p class="product-meta">PUMA • Accessories</p>
+            <div class="price-row">
+              <span class="price sale">DKK 329</span>
+              <span class="price old">DKK 499</span>
+            </div>
+            <span class="btn primary">Se produkt</span>
+          </div>
+        </a>
+
+        <!-- Produkt 3 -->
+        <a class="product-card soldout" href="./product.html">
+          <div class="badges">
+            <span class="badge sold">UDSOLGT</span>
+          </div>
+
+          <div class="product-media">
+            <img
+              src="https://kea-alt-del.dk/t7/images/webp/640/1569.webp"
+              alt="Shorts"
+            />
+          </div>
+
+          <div class="product-body">
+            <h3 class="product-name">Training Shorts — Studio Fit</h3>
+            <p class="product-meta">Nike • Shorts</p>
+            <div class="price-row">
+              <span class="price">DKK 899</span>
+            </div>
+            <span class="btn primary">Udsolgt</span>
+          </div>
+        </a>
+
+        <!-- Produkt 4 -->
+        <a class="product-card soldout" href="./product.html">
+          <div class="badges">
+            <span class="badge sold">UDSOLGT</span>
+            <span class="badge sale">SALE</span>
+          </div>
+
+          <div class="product-media">
+            <img
+              src="https://kea-alt-del.dk/t7/images/webp/640/1548.webp"
+              alt="Sneakers"
+            />
+          </div>
+
+          <div class="product-body">
+            <h3 class="product-name">Runner Sneakers — Grey/Lime</h3>
+            <p class="product-meta">Nike • Footwear</p>
+            <div class="price-row">
+              <span class="price sale">DKK 399</span>
+              <span class="price old">DKK 599</span>
+            </div>
+            <span class="btn primary">Udsolgt</span>
+          </div>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="footer-brand">Fashion<span class="r">R</span>Us</div>
+          <small class="footer-copy"
+            >© FashionRUs — Mode til hele familie</small
+          >
+        </div>
+
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="./index.html">Om os</a>
+          <a href="./productlist.html">Job/Karriere</a>
+          <a href="./product.html">Levering og Retur</a>
+          <a href="#">Kontakt</a>
+        </nav>
+
+        <form
+          class="footer-form"
+          action="#"
+          method="post"
+          aria-label="Newsletter"
+        >
+          <label class="footer-label" for="newsletter"
+            >lmeld dig vores nyhedsbrev og få besked, når vi lancerer nye styles
+            og favoritter.</label
+          >
+          <div class="footer-field">
+            <input
+              id="newsletter"
+              type="email"
+              placeholder="Din email"
+              autocomplete="email"
+            />
+            <button type="submit" class="footer-btn" aria-label="Tilmeld">
+              Tilmeld
+            </button>
+          </div>
+        </form>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FashionRUs — Product</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#content">Spring til indhold</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html" aria-label="FashionRUs Home">
+          <div class="logo">Fashion<span class="r">R</span>Us</div>
+        </a>
+
+        <nav class="nav" aria-label="Top navigation">
+          <a href="./index.html">Categories</a>
+          <a href="./index.html">Brands</a>
+          <a href="./index.html">Seasons</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="search" role="search">
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path
+                d="M16.3 16.3 21 21"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            <input type="search" placeholder="Search" aria-label="Search" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="container">
+      <div class="section-head">
+        <h2>Product</h2>
+      </div>
+
+      <div class="details-grid">
+        <section class="gallery" aria-label="Product gallery">
+          <div class="gallery-main">
+            <img
+              src="https://kea-alt-del.dk/t7/images/webp/640/1573.webp"
+              alt="Sahara Team India jersey"
+            />
+          </div>
+
+          <div class="gallery-thumbs" aria-label="Thumbnails">
+            <div class="thumb">
+              <img
+                src="https://kea-alt-del.dk/t7/images/webp/640/1573.webp"
+                alt="Thumb 1"
+              />
+            </div>
+            <div class="thumb">
+              <img
+                src="https://kea-alt-del.dk/t7/images/webp/640/1570.webp"
+                alt="Thumb 2"
+              />
+            </div>
+            <div class="thumb">
+              <img
+                src="https://kea-alt-del.dk/t7/images/webp/640/1571.webp"
+                alt="Thumb 3"
+              />
+            </div>
+            <div class="thumb">
+              <img
+                src="https://kea-alt-del.dk/t7/images/webp/640/1572.webp"
+                alt="Thumb 4"
+              />
+            </div>
+          </div>
+        </section>
+
+        <aside class="panel" aria-label="Product information">
+          <h1>Capri Training Tights — Graphite</h1>
+          <p class="brandline">Nike • Tights</p>
+
+          <div class="price-row" style="margin: 0.2rem 0 0.7rem">
+            <span class="price sale">DKK 329</span>
+            <span class="price old">DKK 499</span>
+            <span class="badge sale" style="margin-left: auto">-34%</span>
+          </div>
+
+          <div class="kv" aria-label="Key values">
+            <div class="kv-row">
+              <span class="k">Model</span
+              ><span class="v">Sahara Team India</span>
+            </div>
+            <div class="kv-row">
+              <span class="k">Color</span><span class="v">Midnight Blue</span>
+            </div>
+            <div class="kv-row">
+              <span class="k">Stock</span><span class="v">+100</span>
+            </div>
+          </div>
+
+          <div class="controls">
+            <div class="select">
+              <label for="size">Choose a size</label>
+              <select id="size" name="size">
+                <option value="">Select…</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+              </select>
+            </div>
+
+            <button class="btn primary" type="button">Add to basket</button>
+            <button class="btn" type="button">Save</button>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer" aria-label="Footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="footer-brand">Fashion<span class="r">R</span>Us</div>
+          <small class="footer-copy"
+            >© FashionRUs — Mode til hele familie</small
+          >
+        </div>
+
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="./index.html">Om os</a>
+          <a href="./productlist.html">Job/Karriere</a>
+          <a href="./product.html">Levering og Retur</a>
+          <a href="#">Kontakt</a>
+        </nav>
+
+        <form
+          class="footer-form"
+          action="#"
+          method="post"
+          aria-label="Newsletter"
+        >
+          <label class="footer-label" for="newsletter"
+            >Tilmeld dig vores nyhedsbrev og få besked, når vi lancerer nye
+            styles og favoritter.</label
+          >
+          <div class="footer-field">
+            <input
+              id="newsletter"
+              type="email"
+              placeholder="Din email"
+              autocomplete="email"
+            />
+            <button type="submit" class="footer-btn" aria-label="Tilmeld">
+              Tilmeld
+            </button>
+          </div>
+        </form>
+      </div>
+    </footer>
+  </body>
+</html>
