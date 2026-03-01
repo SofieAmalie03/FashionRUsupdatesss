@@ -8,6 +8,8 @@
   </head>
 
   <body>
+    <a class="skip-link" href="#content">Spring til indhold</a>
+
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="./index.html" aria-label="FashionRUs Home">
@@ -46,107 +48,14 @@
       </div>
     </header>
 
-    <main class="container">
+    <main id="content" class="container">
       <div class="section-head">
-        <h2>Produkter</h2>
+        <h2 id="pageTitle">Produkter</h2>
+        <p class="hint" id="pageHint"></p>
       </div>
 
-      <section class="product_list_container">
-        <!-- Produkt 1 -->
-        <a class="product-card" href="./product.html">
-          <div class="badges">
-            <span class="badge">NEW</span>
-          </div>
-
-          <div class="product-media">
-            <img
-              src="https://kea-alt-del.dk/t7/images/webp/640/1573.webp"
-              alt="Capri tights"
-            />
-          </div>
-
-          <div class="product-body">
-            <h3 class="product-name">Capri Training Tights — Graphite</h3>
-            <p class="product-meta">Nike • Tights</p>
-            <div class="price-row">
-              <span class="price">DKK 599</span>
-            </div>
-            <span class="btn primary">Se produkt</span>
-          </div>
-        </a>
-
-        <!-- Produkt 2 -->
-        <a class="product-card" href="./product.html">
-          <div class="badges">
-            <span class="badge sale">-34%</span>
-          </div>
-
-          <div class="product-media">
-            <img
-              src="https://kea-alt-del.dk/t7/images/webp/640/1525.webp"
-              alt="Backpack"
-            />
-          </div>
-
-          <div class="product-body">
-            <h3 class="product-name">PUMA Core Backpack — Black</h3>
-            <p class="product-meta">PUMA • Accessories</p>
-            <div class="price-row">
-              <span class="price sale">DKK 329</span>
-              <span class="price old">DKK 499</span>
-            </div>
-            <span class="btn primary">Se produkt</span>
-          </div>
-        </a>
-
-        <!-- Produkt 3 -->
-        <a class="product-card soldout" href="./product.html">
-          <div class="badges">
-            <span class="badge sold">UDSOLGT</span>
-          </div>
-
-          <div class="product-media">
-            <img
-              src="https://kea-alt-del.dk/t7/images/webp/640/1569.webp"
-              alt="Shorts"
-            />
-          </div>
-
-          <div class="product-body">
-            <h3 class="product-name">Training Shorts — Studio Fit</h3>
-            <p class="product-meta">Nike • Shorts</p>
-            <div class="price-row">
-              <span class="price">DKK 899</span>
-            </div>
-            <span class="btn primary">Udsolgt</span>
-          </div>
-        </a>
-
-        <!-- Produkt 4 -->
-        <a class="product-card soldout" href="./product.html">
-          <div class="badges">
-            <span class="badge sold">UDSOLGT</span>
-            <span class="badge sale">SALE</span>
-          </div>
-
-          <div class="product-media">
-            <img
-              src="https://kea-alt-del.dk/t7/images/webp/640/1548.webp"
-              alt="Sneakers"
-            />
-          </div>
-
-          <div class="product-body">
-            <h3 class="product-name">Runner Sneakers — Grey/Lime</h3>
-            <p class="product-meta">Nike • Footwear</p>
-            <div class="price-row">
-              <span class="price sale">DKK 399</span>
-              <span class="price old">DKK 599</span>
-            </div>
-            <span class="btn primary">Udsolgt</span>
-          </div>
-        </a>
-      </section>
+      <!-- ✅ HUL: JS indsætter cards her -->
+      <section class="product_list_container" id="productList"></section>
     </main>
 
     <footer class="site-footer" aria-label="Footer">
@@ -171,10 +80,10 @@
           method="post"
           aria-label="Newsletter"
         >
-          <label class="footer-label" for="newsletter"
-            >lmeld dig vores nyhedsbrev og få besked, når vi lancerer nye styles
-            og favoritter.</label
-          >
+          <label class="footer-label" for="newsletter">
+            Tilmeld dig vores nyhedsbrev og få besked, når vi lancerer nye
+            styles og favoritter.
+          </label>
           <div class="footer-field">
             <input
               id="newsletter"
@@ -186,8 +95,12 @@
               Tilmeld
             </button>
           </div>
+          <p class="footer-hint">Ingen spam — kun når der er noget nyt.</p>
         </form>
       </div>
     </footer>
+
+    <!-- ✅ Husk at linke JS -->
+    <script src="./productlist.js"></script>
   </body>
 </html>

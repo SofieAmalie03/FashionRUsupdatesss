@@ -50,66 +50,51 @@
 
     <main id="content" class="container">
       <div class="section-head">
-        <h2>Product</h2>
+        <h2 id="sectionTitle">Product</h2>
+        <p class="hint" id="sectionHint"></p>
       </div>
 
       <div class="details-grid">
         <section class="gallery" aria-label="Product gallery">
           <div class="gallery-main">
-            <img
-              src="https://kea-alt-del.dk/t7/images/webp/640/1573.webp"
-              alt="Sahara Team India jersey"
-            />
+            <img id="mainImage" src="" alt="" />
           </div>
 
           <div class="gallery-thumbs" aria-label="Thumbnails">
-            <div class="thumb">
-              <img
-                src="https://kea-alt-del.dk/t7/images/webp/640/1573.webp"
-                alt="Thumb 1"
-              />
-            </div>
-            <div class="thumb">
-              <img
-                src="https://kea-alt-del.dk/t7/images/webp/640/1570.webp"
-                alt="Thumb 2"
-              />
-            </div>
-            <div class="thumb">
-              <img
-                src="https://kea-alt-del.dk/t7/images/webp/640/1571.webp"
-                alt="Thumb 3"
-              />
-            </div>
-            <div class="thumb">
-              <img
-                src="https://kea-alt-del.dk/t7/images/webp/640/1572.webp"
-                alt="Thumb 4"
-              />
-            </div>
+            <button class="thumb" type="button" aria-label="Thumbnail 1">
+              <img id="thumb1" src="" alt="" />
+            </button>
+            <button class="thumb" type="button" aria-label="Thumbnail 2">
+              <img id="thumb2" src="" alt="" />
+            </button>
+            <button class="thumb" type="button" aria-label="Thumbnail 3">
+              <img id="thumb3" src="" alt="" />
+            </button>
+            <button class="thumb" type="button" aria-label="Thumbnail 4">
+              <img id="thumb4" src="" alt="" />
+            </button>
           </div>
         </section>
 
         <aside class="panel" aria-label="Product information">
-          <h1>Capri Training Tights — Graphite</h1>
-          <p class="brandline">Nike • Tights</p>
+          <h1 id="productTitle">Loading…</h1>
+          <p class="brandline" id="brandLine"></p>
 
-          <div class="price-row" style="margin: 0.2rem 0 0.7rem">
-            <span class="price sale">DKK 329</span>
-            <span class="price old">DKK 499</span>
-            <span class="badge sale" style="margin-left: auto">-34%</span>
-          </div>
+          <div
+            class="price-row"
+            style="margin: 0.2rem 0 0.7rem"
+            id="priceRow"
+          ></div>
 
           <div class="kv" aria-label="Key values">
             <div class="kv-row">
-              <span class="k">Model</span
-              ><span class="v">Sahara Team India</span>
+              <span class="k">Model</span><span class="v" id="kvModel">—</span>
             </div>
             <div class="kv-row">
-              <span class="k">Color</span><span class="v">Midnight Blue</span>
+              <span class="k">Color</span><span class="v" id="kvColor">—</span>
             </div>
             <div class="kv-row">
-              <span class="k">Stock</span><span class="v">+100</span>
+              <span class="k">Stock</span><span class="v" id="kvStock">—</span>
             </div>
           </div>
 
@@ -118,14 +103,12 @@
               <label for="size">Choose a size</label>
               <select id="size" name="size">
                 <option value="">Select…</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
               </select>
             </div>
 
-            <button class="btn primary" type="button">Add to basket</button>
+            <button class="btn primary" type="button" id="addBtn">
+              Add to basket
+            </button>
             <button class="btn" type="button">Save</button>
           </div>
         </aside>
@@ -154,10 +137,10 @@
           method="post"
           aria-label="Newsletter"
         >
-          <label class="footer-label" for="newsletter"
-            >Tilmeld dig vores nyhedsbrev og få besked, når vi lancerer nye
-            styles og favoritter.</label
-          >
+          <label class="footer-label" for="newsletter">
+            Tilmeld dig vores nyhedsbrev og få besked, når vi lancerer nye
+            styles og favoritter.
+          </label>
           <div class="footer-field">
             <input
               id="newsletter"
@@ -172,5 +155,7 @@
         </form>
       </div>
     </footer>
+
+    <script src="./product.js"></script>
   </body>
 </html>

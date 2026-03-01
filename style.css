@@ -694,6 +694,87 @@ small {
 }
 
 /* =========================
+   Products demoøvelse (products.html)
+   ========================= */
+
+.grid#productGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  grid-column: span 3;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card-media {
+  aspect-ratio: 4 / 5;
+  background: rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 0.95rem 1rem 1.05rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.card-title {
+  margin: 0;
+  font-weight: 850;
+  letter-spacing: 0.1px;
+  line-height: 1.25;
+  font-size: 1rem;
+}
+
+.card-meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.card-price {
+  margin: 0.2rem 0 0;
+  font-weight: 900;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .grid#productGrid .card {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid#productGrid .card {
+    grid-column: span 12;
+  }
+}
+/* =========================
+   Products demoøvelse (products.html)
+   ========================= */
+
+/* =========================
    Responsive
    ========================= */
 
