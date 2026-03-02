@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FashionRUs — Product</title>
+    <title>FashionRUs — Produkt</title>
     <link rel="stylesheet" href="./style.css" />
+    <script src="./product.js" defer></script>
   </head>
 
   <body>
@@ -15,12 +16,6 @@
         <a class="brand" href="./index.html" aria-label="FashionRUs Home">
           <div class="logo">Fashion<span class="r">R</span>Us</div>
         </a>
-
-        <nav class="nav" aria-label="Top navigation">
-          <a href="./index.html">Categories</a>
-          <a href="./index.html">Brands</a>
-          <a href="./index.html">Seasons</a>
-        </nav>
 
         <div class="header-actions">
           <div class="search" role="search">
@@ -50,7 +45,7 @@
 
     <main id="content" class="container">
       <div class="section-head">
-        <h2 id="sectionTitle">Product</h2>
+        <h1 id="sectionTitle">Produkt</h1>
         <p class="hint" id="sectionHint"></p>
       </div>
 
@@ -77,14 +72,10 @@
         </section>
 
         <aside class="panel" aria-label="Product information">
-          <h1 id="productTitle">Loading…</h1>
+          <h2 id="productTitle">Loading…</h2>
           <p class="brandline" id="brandLine"></p>
 
-          <div
-            class="price-row"
-            style="margin: 0.2rem 0 0.7rem"
-            id="priceRow"
-          ></div>
+          <div class="price-row" id="priceRow"></div>
 
           <div class="kv" aria-label="Key values">
             <div class="kv-row">
@@ -141,6 +132,7 @@
             Tilmeld dig vores nyhedsbrev og få besked, når vi lancerer nye
             styles og favoritter.
           </label>
+
           <div class="footer-field">
             <input
               id="newsletter"
@@ -155,7 +147,5 @@
         </form>
       </div>
     </footer>
-
-    <script src="./product.js"></script>
   </body>
 </html>

@@ -3,12 +3,11 @@ const pageTitle = document.querySelector("#pageTitle");
 const pageHint = document.querySelector("#pageHint");
 
 const params = new URLSearchParams(window.location.search);
-const category = params.get("category"); // fx "Accessories"
+const category = params.get("category");
 
 const endpoint = "https://kea-alt-del.dk/t7/api/products";
 
 async function getProducts() {
-  // hvis der ikke er category i URL, så hent alt (fallback)
   const url = category
     ? `${endpoint}?category=${encodeURIComponent(category)}`
     : endpoint;
@@ -36,14 +35,13 @@ function showProducts(products) {
   products.forEach((p) => {
     const imageUrl = `https://kea-alt-del.dk/t7/images/webp/640/${p.id}.webp`;
 
-    // pris + evt. discount
     const hasDiscount = p.discount !== null && p.discount > 0;
     const oldPrice = hasDiscount
       ? Math.round(p.price / (1 - p.discount / 100))
       : null;
 
     listEl.innerHTML += `
-      <a class="product-card ${p.soldout ? "soldout" : ""}" href="./product.html?id=${p.id}">
+      <a class="product-card ${p.soldout ? "soldout" : ""}" href="product.html?id=${p.id}">
         <div class="badges">
           ${hasDiscount ? `<span class="badge sale">-${p.discount}%</span>` : ""}
           ${p.soldout ? `<span class="badge sold">UDSOLGT</span>` : ""}

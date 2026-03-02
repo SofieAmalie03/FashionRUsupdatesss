@@ -12,7 +12,7 @@ function showCategories(categories) {
 
   categories.forEach((c) => {
     container.innerHTML += `
-      <a class="category-card" href="productlist.html?category=${c.category}">
+      <a class="category-card" href="productlist.html?category=${encodeURIComponent(c.category)}">
         <h3 class="title">${c.category}</h3>
         <div class="cta">Se udvalg →</div>
       </a>
