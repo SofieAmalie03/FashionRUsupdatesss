@@ -24,109 +24,70 @@ const sizeSelect = document.querySelector("#size");
 const addBtn = document.querySelector("#addBtn");
 
 if (!id) {
-  sectionTitle.textContent = "Product";
-  sectionHint.textContent =
-    "Mangler id i URL. Åbn et produkt fra produktlisten.";
   productTitle.textContent = "Ingen produkt valgt";
-  addBtn.disabled = true;
 } else {
   getProduct(id);
 }
 
 async function getProduct(productId) {
-  try {
-    const res = await fetch(
-      `https://kea-alt-del.dk/t7/api/products/${productId}`,
-    );
-    const product = await res.json();
-    renderProduct(product);
-  } catch (err) {
-    console.error(err);
-    productTitle.textContent = "Kunne ikke hente produktet";
-    sectionHint.textContent = "Tjek at linket indeholder ?id=...";
-  }
+  const res = await fetch(
+    `https://kea-alt-del.dk/t7/api/products/${productId}`,
+  );
+  const product = await res.json();
+  showProduct(product);
 }
 
-function renderProduct(p) {
+function showProduct(p) {
   document.title = `FashionRUs — ${p.productdisplayname}`;
-  sectionTitle.textContent = "Product";
+
+  sectionTitle.textContent = "Produkt";
   sectionHint.textContent = `${p.category} · ${p.brandname}`;
 
   productTitle.textContent = p.productdisplayname;
   brandLine.textContent = `${p.brandname} • ${p.articletype}`;
 
-  // Images
-  const img640 = (pid) =>
-    `https://kea-alt-del.dk/t7/images/webp/640/${pid}.webp`;
+  const imgUrl = `https://kea-alt-del.dk/t7/images/webp/640/${p.id}.webp`;
 
-  // Main image
-  mainImage.src = img640(p.id);
+  mainImage.src = imgUrl;
   mainImage.alt = p.productdisplayname;
 
-  // Thumbnails (API har ikke “rigtige” ekstra billeder, så vi viser samme i 4 thumbs)
-  // Hvis du vil, kan vi senere lave hover/klik state – men dette er 1:1 og virker altid.
   thumbs.forEach((t) => {
-    t.src = img640(p.id);
+    t.src = imgUrl;
     t.alt = p.productdisplayname;
   });
 
-  // Klik på thumbs skifter main (her skifter den bare til samme – men flowet er klar)
-  document.querySelectorAll(".gallery-thumbs .thumb").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      mainImage.src = img640(p.id);
-    });
-  });
-
-  // Price + discount
-  const hasDiscount = p.discount !== null && p.discount > 0;
-  const oldPrice = hasDiscount
+  const oldPrice = p.discount
     ? Math.round(p.price / (1 - p.discount / 100))
     : null;
 
   priceRow.innerHTML = `
-    <span class="price ${hasDiscount ? "sale" : ""}">DKK ${p.price}</span>
-    ${hasDiscount ? `<span class="price old">DKK ${oldPrice}</span>` : ""}
-    ${hasDiscount ? `<span class="badge sale" style="margin-left:auto">-${p.discount}%</span>` : ""}
-    ${p.soldout ? `<span class="badge sold" style="margin-left:auto">UDSOLGT</span>` : ""}
+    <span class="price ${p.discount && "sale"}">DKK ${p.price}</span>
+    ${p.discount ? `<span class="price old">DKK ${oldPrice}</span>` : ""}
+    ${p.discount ? `<span class="badge sale">-${p.discount}%</span>` : ""}
+    ${p.soldout ? `<span class="badge sold">UDSOLGT</span>` : ""}
   `;
 
-  // Key values
   kvModel.textContent = p.productdisplayname;
   kvColor.textContent = p.basecolour || "—";
+  kvStock.textContent = p.soldout ? "Udsolgt" : "På lager";
 
-  // Stock: API bruger "soldout" (0/1). Vi laver en pæn tekst.
-  kvStock.textContent = p.soldout ? "0 (sold out)" : "In stock";
-
-  // Sizes: API har typisk sizes som CSV-string i "size" eller null
-  // Vi fylder select pænt uanset hvad.
   fillSizes(p.size);
 
-  // Disable add button if sold out
-  if (p.soldout) {
-    addBtn.textContent = "Udsolgt";
-    addBtn.disabled = true;
-  } else {
-    addBtn.textContent = "Add to basket";
-    addBtn.disabled = false;
-  }
+  addBtn.textContent = p.soldout ? "Udsolgt" : "Add to basket";
+  addBtn.disabled = p.soldout ? true : false;
 }
 
 function fillSizes(sizeValue) {
-  // reset
   sizeSelect.innerHTML = `<option value="">Select…</option>`;
 
   if (!sizeValue) return;
 
-  // sizeValue kan være fx "S, M, L" eller "36,37,38"
   const sizes = String(sizeValue)
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean);
 
   sizes.forEach((s) => {
-    const opt = document.createElement("option");
-    opt.value = s;
-    opt.textContent = s;
-    sizeSelect.appendChild(opt);
+    sizeSelect.innerHTML += `<option value="${s}">${s}</option>`;
   });
 }

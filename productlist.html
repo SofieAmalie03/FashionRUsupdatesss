@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FashionRUs — Produkter</title>
     <link rel="stylesheet" href="./style.css" />
+    <script src="./productlist.js" defer></script>
   </head>
 
   <body>
@@ -15,12 +16,6 @@
         <a class="brand" href="./index.html" aria-label="FashionRUs Home">
           <div class="logo">Fashion<span class="r">R</span>Us</div>
         </a>
-
-        <nav class="nav" aria-label="Top navigation">
-          <a href="./index.html">Categories</a>
-          <a href="./index.html">Brands</a>
-          <a href="./index.html">Seasons</a>
-        </nav>
 
         <div class="header-actions">
           <div class="search" role="search">
@@ -50,11 +45,10 @@
 
     <main id="content" class="container">
       <div class="section-head">
-        <h2 id="pageTitle">Produkter</h2>
+        <h1 id="pageTitle">Produkter</h1>
         <p class="hint" id="pageHint"></p>
       </div>
 
-      <!-- ✅ HUL: JS indsætter cards her -->
       <section class="product_list_container" id="productList"></section>
     </main>
 
@@ -84,6 +78,7 @@
             Tilmeld dig vores nyhedsbrev og få besked, når vi lancerer nye
             styles og favoritter.
           </label>
+
           <div class="footer-field">
             <input
               id="newsletter"
@@ -95,12 +90,10 @@
               Tilmeld
             </button>
           </div>
+
           <p class="footer-hint">Ingen spam — kun når der er noget nyt.</p>
         </form>
       </div>
     </footer>
-
-    <!-- ✅ Husk at linke JS -->
-    <script src="./productlist.js"></script>
   </body>
 </html>
