@@ -34,10 +34,10 @@ async function getProduct(productId) {
     `https://kea-alt-del.dk/t7/api/products/${productId}`,
   );
   const product = await res.json();
-  renderProduct(product);
+  showProduct(product);
 }
 
-function renderProduct(p) {
+function showProduct(p) {
   document.title = `FashionRUs — ${p.productdisplayname}`;
 
   sectionTitle.textContent = "Produkt";
@@ -56,15 +56,14 @@ function renderProduct(p) {
     t.alt = p.productdisplayname;
   });
 
-  const hasDiscount = p.discount !== null && p.discount > 0;
-  const oldPrice = hasDiscount
+  const oldPrice = p.discount
     ? Math.round(p.price / (1 - p.discount / 100))
     : null;
 
   priceRow.innerHTML = `
-    <span class="price ${hasDiscount ? "sale" : ""}">DKK ${p.price}</span>
-    ${hasDiscount ? `<span class="price old">DKK ${oldPrice}</span>` : ""}
-    ${hasDiscount ? `<span class="badge sale">-${p.discount}%</span>` : ""}
+    <span class="price ${p.discount && "sale"}">DKK ${p.price}</span>
+    ${p.discount ? `<span class="price old">DKK ${oldPrice}</span>` : ""}
+    ${p.discount ? `<span class="badge sale">-${p.discount}%</span>` : ""}
     ${p.soldout ? `<span class="badge sold">UDSOLGT</span>` : ""}
   `;
 
@@ -74,10 +73,8 @@ function renderProduct(p) {
 
   fillSizes(p.size);
 
-  if (p.soldout) {
-    addBtn.textContent = "Udsolgt";
-    addBtn.disabled = true;
-  }
+  addBtn.textContent = p.soldout ? "Udsolgt" : "Add to basket";
+  addBtn.disabled = p.soldout ? true : false;
 }
 
 function fillSizes(sizeValue) {
