@@ -8,10 +8,10 @@
     <script src="./product.js" defer></script>
   </head>
 
-  <body>
+  <body class="page">
     <a class="skip-link" href="#content">Spring til indhold</a>
 
-    <header class="site-header">
+    <header class="site-header" role="banner">
       <div class="container header-inner">
         <a class="brand" href="./index.html" aria-label="FashionRUs Home">
           <div class="logo">Fashion<span class="r">R</span>Us</div>
@@ -19,24 +19,6 @@
 
         <div class="header-actions">
           <div class="search" role="search">
-            <svg
-              class="icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-              <path
-                d="M16.3 16.3 21 21"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-            </svg>
             <input type="search" placeholder="Search" aria-label="Search" />
           </div>
         </div>
@@ -111,7 +93,7 @@
         <div class="footer-left">
           <div class="footer-brand">Fashion<span class="r">R</span>Us</div>
           <small class="footer-copy"
-            >© FashionRUs — Mode til hele familie</small
+            >© FashionRUs — Mode til hele familien</small
           >
         </div>
 
@@ -144,6 +126,8 @@
               Tilmeld
             </button>
           </div>
+
+          <p class="footer-hint">Ingen spam — kun når der er noget nyt.</p>
         </form>
       </div>
     </footer>

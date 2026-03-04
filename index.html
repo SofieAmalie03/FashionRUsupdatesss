@@ -8,10 +8,10 @@
     <script src="./index.js" defer></script>
   </head>
 
-  <body>
+  <body class="home">
     <a class="skip-link" href="#content">Spring til indhold</a>
 
-    <header class="site-header">
+    <header class="site-header" role="banner">
       <div class="container header-inner">
         <a class="brand" href="./index.html" aria-label="FashionRUs Home">
           <div class="logo">Fashion<span class="r">R</span>Us</div>
@@ -19,77 +19,53 @@
 
         <div class="header-actions">
           <div class="search" role="search">
-            <svg
-              class="icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-              <path
-                d="M16.3 16.3 21 21"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-            </svg>
             <input type="search" placeholder="Search" aria-label="Search" />
           </div>
         </div>
       </div>
     </header>
 
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <img
+        src="./img/ChatGPT Image 4. mar. 2026, 11.40.49.png"
+        alt="Active family hero"
+      />
+
+      <div class="hero-overlay">
+        <p class="hero-kicker">NEW IN • ACTIVE FAMILY</p>
+        <h1 class="hero-title">MOVE DIFFERENT</h1>
+        <p class="hero-sub">
+          Premium activewear fra flere brands – til hele familien.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#categories" class="btn">Shop Now</a>
+          <a href="#categories" class="btn ghost">Explore</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- KATEGORIER -->
     <main id="content" class="container">
-      <div class="section-head">
-        <h1>Kategoriererrrr</h1>
+      <div id="categories" class="section-head">
+        <h2>Kategorier</h2>
       </div>
 
-      <section class="category_list_container categoryList"></section>
+      <section
+        class="category_list_container categoryList"
+        aria-label="Kategorier"
+      ></section>
     </main>
 
     <footer class="site-footer" aria-label="Footer">
       <div class="container footer-inner">
-        <div class="footer-left">
+        <div>
           <div class="footer-brand">Fashion<span class="r">R</span>Us</div>
           <small class="footer-copy"
-            >© FashionRUs — Mode til hele familie</small
+            >© FashionRUs — Mode til hele familien</small
           >
         </div>
-
-        <nav class="footer-links" aria-label="Footer links">
-          <a href="./index.html">Om os</a>
-          <a href="./productlist.html">Job/Karriere</a>
-          <a href="./product.html">Levering og Retur</a>
-          <a href="#">Kontakt</a>
-        </nav>
-
-        <form
-          class="footer-form"
-          action="#"
-          method="post"
-          aria-label="Newsletter"
-        >
-          <label class="footer-label" for="newsletter">
-            Tilmeld dig vores nyhedsbrev og få besked, når vi lancerer nye
-            styles og favoritter.
-          </label>
-
-          <div class="footer-field">
-            <input
-              id="newsletter"
-              type="email"
-              placeholder="Din email"
-              autocomplete="email"
-            />
-            <button type="submit" class="footer-btn">Tilmeld</button>
-          </div>
-
-          <p class="footer-hint">Ingen spam — kun når der er noget nyt.</p>
-        </form>
       </div>
     </footer>
   </body>
