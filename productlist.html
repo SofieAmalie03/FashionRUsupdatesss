@@ -8,35 +8,17 @@
     <script src="./productlist.js" defer></script>
   </head>
 
-  <body>
+  <body class="page">
     <a class="skip-link" href="#content">Spring til indhold</a>
 
-    <header class="site-header">
-      <div class="container header-inner">
+    <header class="site-header" role="banner">
+      <div class="header-inner">
         <a class="brand" href="./index.html" aria-label="FashionRUs Home">
           <div class="logo">Fashion<span class="r">R</span>Us</div>
         </a>
 
         <div class="header-actions">
           <div class="search" role="search">
-            <svg
-              class="icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-              <path
-                d="M16.3 16.3 21 21"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-            </svg>
             <input type="search" placeholder="Search" aria-label="Search" />
           </div>
         </div>
@@ -49,7 +31,51 @@
         <p class="hint" id="pageHint"></p>
       </div>
 
-      <section class="product_list_container" id="productList"></section>
+      <div class="controls-row" aria-label="Filtrer og sorter produkter">
+        <div class="filters" aria-label="Filtrer produkter">
+          <button
+            id="toggleFilters"
+            type="button"
+            aria-expanded="false"
+            aria-controls="filterOptions"
+          >
+            Alle filtre
+          </button>
+
+          <div id="filterOptions" hidden>
+            <button type="button">All</button>
+            <button type="button">Unisex</button>
+            <button type="button">Women</button>
+            <button type="button">Men</button>
+          </div>
+        </div>
+
+        <div class="sort" aria-label="Sortér produkter">
+          <button
+            id="toggleSort"
+            type="button"
+            aria-expanded="false"
+            aria-controls="sortOptions"
+          >
+            Sortér efter
+          </button>
+
+          <div id="sortOptions" hidden>
+            <button type="button" data-sort="name-az">Navn: A–Z</button>
+            <button type="button" data-sort="name-za">Navn: Z–A</button>
+            <button type="button" data-sort="price-asc">Pris: lav → høj</button>
+            <button type="button" data-sort="price-desc">
+              Pris: høj → lav
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <section
+        class="product_list_container"
+        id="productList"
+        aria-label="Produkter"
+      ></section>
     </main>
 
     <footer class="site-footer" aria-label="Footer">
@@ -57,7 +83,7 @@
         <div class="footer-left">
           <div class="footer-brand">Fashion<span class="r">R</span>Us</div>
           <small class="footer-copy"
-            >© FashionRUs — Mode til hele familie</small
+            >© FashionRUs — Mode til hele familien</small
           >
         </div>
 

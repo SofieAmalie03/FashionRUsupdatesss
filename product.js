@@ -1,3 +1,5 @@
+const IMG_BASE = "https://kea-alt-del.dk/t7/images/webp/640/";
+
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
@@ -30,11 +32,16 @@ if (!id) {
 }
 
 async function getProduct(productId) {
-  const res = await fetch(
-    `https://kea-alt-del.dk/t7/api/products/${productId}`,
-  );
-  const product = await res.json();
-  showProduct(product);
+  try {
+    const res = await fetch(
+      `https://kea-alt-del.dk/t7/api/products/${productId}`,
+    );
+    const product = await res.json();
+    showProduct(product);
+  } catch (err) {
+    console.error(err);
+    productTitle.textContent = "Kunne ikke hente produktet.";
+  }
 }
 
 function showProduct(p) {
@@ -46,7 +53,7 @@ function showProduct(p) {
   productTitle.textContent = p.productdisplayname;
   brandLine.textContent = `${p.brandname} • ${p.articletype}`;
 
-  const imgUrl = `https://kea-alt-del.dk/t7/images/webp/640/${p.id}.webp`;
+  const imgUrl = productImageUrl(p);
 
   mainImage.src = imgUrl;
   mainImage.alt = p.productdisplayname;
@@ -61,7 +68,7 @@ function showProduct(p) {
     : null;
 
   priceRow.innerHTML = `
-    <span class="price ${p.discount && "sale"}">DKK ${p.price}</span>
+    <span class="price ${p.discount ? "sale" : ""}">DKK ${p.price}</span>
     ${p.discount ? `<span class="price old">DKK ${oldPrice}</span>` : ""}
     ${p.discount ? `<span class="badge sale">-${p.discount}%</span>` : ""}
     ${p.soldout ? `<span class="badge sold">UDSOLGT</span>` : ""}
@@ -74,7 +81,13 @@ function showProduct(p) {
   fillSizes(p.size);
 
   addBtn.textContent = p.soldout ? "Udsolgt" : "Add to basket";
-  addBtn.disabled = p.soldout ? true : false;
+  addBtn.disabled = Boolean(p.soldout);
+}
+
+function productImageUrl(p) {
+  // FIX: brug p.image
+  if (p?.image) return `${IMG_BASE}${p.image}`;
+  return `${IMG_BASE}${p?.id ?? 0}.webp`;
 }
 
 function fillSizes(sizeValue) {
@@ -88,6 +101,9 @@ function fillSizes(sizeValue) {
     .filter(Boolean);
 
   sizes.forEach((s) => {
-    sizeSelect.innerHTML += `<option value="${s}">${s}</option>`;
+    sizeSelect.insertAdjacentHTML(
+      "beforeend",
+      `<option value="${s}">${s}</option>`,
+    );
   });
 }
