@@ -1,3 +1,6 @@
+/* =========================
+   Base / Tokens
+========================= */
 :root {
   --bg: #ffffff;
   --ink: #111111;
@@ -19,7 +22,10 @@
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Reset */
+[hidden] {
+  display: none !important;
+}
+
 *,
 *::before,
 *::after {
@@ -29,6 +35,10 @@
 html,
 body {
   height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -61,7 +71,7 @@ select {
   margin-inline: auto;
 }
 
-/* Accessibility */
+/* A11y */
 .skip-link {
   position: absolute;
   left: -999px;
@@ -72,48 +82,49 @@ select {
   border-radius: 999px;
   border: 1px solid var(--line);
 }
+
 .skip-link:focus {
   left: 1rem;
   top: 1rem;
   z-index: 9999;
 }
+
 :focus-visible {
   outline: 3px solid rgba(17, 17, 17, 0.2);
   outline-offset: 3px;
   border-radius: 14px;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 /* =========================
-   HEADER (default = pages)
-   ========================= */
+   Header
+========================= */
 .site-header {
   position: sticky;
-  top: -80px;
+  top: 0;
   z-index: 100;
   background: rgba(255, 255, 255, 0.88);
-  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
 }
 
 .header-inner {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 0;
+  align-items: center;
+
+  width: 100%;
+  padding: 20px clamp(16px, 3vw, 32px);
 }
 
 .brand .logo {
   font-weight: 950;
   letter-spacing: -0.4px;
-  font-size: 1.05rem;
+  font-size: 2rem;
   text-transform: uppercase;
   color: var(--ink);
 }
+
 .brand .logo .r {
   display: inline-block;
   transform: scaleX(-1);
@@ -125,7 +136,6 @@ html {
   gap: 0.75rem;
 }
 
-/* Search (default = dark text) */
 .search {
   display: flex;
   align-items: center;
@@ -135,21 +145,22 @@ html {
   border: 1px solid rgba(17, 17, 17, 0.12);
   transition: 0.2s ease;
 }
+
 .search:hover {
   background: rgba(17, 17, 17, 0.08);
 }
+
 .search input {
   all: unset;
   width: 240px;
   color: var(--ink);
 }
+
 .search input::placeholder {
   color: rgba(17, 17, 17, 0.5);
 }
 
-/* =========================
-   HOME overrides (hero header)
-   ========================= */
+/* Home = transparent header on hero */
 body.home .site-header {
   position: absolute;
   top: 0;
@@ -157,6 +168,8 @@ body.home .site-header {
   width: 100%;
   background: transparent;
   border-bottom: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 body.home .brand .logo {
@@ -169,30 +182,38 @@ body.home .search {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
+
 body.home .search:hover {
   background: rgba(255, 255, 255, 0.25);
 }
+
 body.home .search input {
   color: #fff;
 }
+
 body.home .search input::placeholder {
   color: rgba(255, 255, 255, 0.8);
 }
 
 /* =========================
-   HERO
-   ========================= */
+   Hero
+========================= */
 .hero {
   position: relative;
-  height: 90vh;
+  height: 100vh;
+  min-height: 600px;
   overflow: hidden;
 }
+
 .hero img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: brightness(0.85);
 }
+
 .hero-overlay {
   position: absolute;
   top: 50%;
@@ -201,30 +222,69 @@ body.home .search input::placeholder {
   color: #fff;
   max-width: 520px;
 }
+
 .hero-kicker {
   letter-spacing: 0.2em;
   font-size: 0.8rem;
   font-weight: 700;
   opacity: 0.85;
+  margin: 0;
 }
+
 .hero-title {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
   line-height: 1;
   margin: 10px 0;
 }
+
 .hero-sub {
   font-size: 1.1rem;
-  margin-bottom: 24px;
+  margin: 0 0 24px;
   opacity: 0.9;
 }
+
 .hero-buttons {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
 }
 
-/* Buttons */
+.hero-discover {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.7;
+}
+
+/* =========================
+   Links / Buttons
+========================= */
+.discover {
+  font-size: 15px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.55);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.25);
+  padding-bottom: 2px;
+}
+
+.discover:hover {
+  color: rgba(17, 17, 17, 0.85);
+  border-bottom-color: rgba(17, 17, 17, 0.45);
+}
+
+.discover-light {
+  color: rgba(255, 255, 255, 0.55);
+  border-bottom-color: rgba(255, 255, 255, 0.28);
+}
+
+.discover-light:hover {
+  color: rgb(255, 255, 255);
+  border-bottom-color: rgba(255, 255, 255, 0.871);
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -244,10 +304,12 @@ body.home .search input::placeholder {
     background 0.14s var(--ease),
     color 0.14s var(--ease);
 }
+
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
 }
+
 .btn:active {
   transform: translateY(0);
 }
@@ -257,14 +319,21 @@ body.home .search input::placeholder {
   border: 2px solid #fff;
   color: #fff;
 }
+
 .btn.ghost:hover {
   background: #fff;
   color: #000;
 }
 
+.btn.primary {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
 /* =========================
-   MAIN / SECTION HEAD
-   ========================= */
+   Layout / Sections
+========================= */
 main {
   padding: 2.2rem 0 3rem;
 }
@@ -276,6 +345,7 @@ main {
   justify-content: space-between;
   gap: 1rem;
 }
+
 .section-head h1,
 .section-head h2 {
   margin: 0;
@@ -284,6 +354,7 @@ main {
   font-weight: 950;
   text-transform: uppercase;
 }
+
 .section-head .hint {
   margin: 0;
   color: var(--muted);
@@ -291,16 +362,15 @@ main {
 }
 
 /* =========================
-   CATEGORIES (index)
-   ========================= */
+   Categories
+========================= */
 .category_list_container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 1.4rem;
-  margin-bottom: 110px;
+  margin-bottom: 32px;
 }
 
-/* Her er FIXET: .category-card er A-tag (fra index.js) */
 .category-card {
   grid-column: span 4;
   border-radius: 999px;
@@ -308,20 +378,20 @@ main {
   background: #fff;
   min-height: 120px;
   padding: 1.35rem 1.8rem;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.2rem;
-
   transition:
     transform 0.14s var(--ease),
     box-shadow 0.14s var(--ease);
 }
+
 .category-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow);
 }
+
 .category-card .title {
   margin: 0;
   font-weight: 950;
@@ -330,6 +400,7 @@ main {
   font-size: 1.25rem;
   line-height: 1.1;
 }
+
 .category-card .cta {
   font-weight: 950;
   text-transform: uppercase;
@@ -340,17 +411,26 @@ main {
 }
 
 /* =========================
-   FILTERS (productlist)
-   ========================= */
-.filters {
+   Controls (Filter/Sort)
+========================= */
+.controls-row {
   display: flex;
-  align-items: center;
-  gap: 0.8rem;
+  gap: 12px;
+  align-items: flex-start;
   flex-wrap: wrap;
   margin: 0.8rem 0 1.2rem;
 }
 
-.filters .all-filters {
+.filters,
+.sort {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+#toggleFilters,
+#toggleSort {
   padding: 0.65rem 0.95rem;
   border-radius: 999px;
   border: 1px solid var(--line);
@@ -358,22 +438,35 @@ main {
   color: var(--ink);
   font-weight: 900;
   cursor: pointer;
-  transition: transform 0.14s var(--ease);
-}
-.filters .all-filters:hover {
-  transform: translateY(-2px);
+  transition:
+    transform 0.14s var(--ease),
+    box-shadow 0.14s var(--ease);
 }
 
-.filter-options {
-  display: none;
+#toggleFilters:hover,
+#toggleSort:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+#filterOptions,
+#sortOptions {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
-}
-.filter-options.is-open {
-  display: flex;
+  padding: 10px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  z-index: 20;
 }
 
-.filters button:not(.all-filters) {
+#filterOptions button,
+#sortOptions button {
   padding: 0.65rem 0.95rem;
   border-radius: 999px;
   border: 1px solid var(--line);
@@ -386,20 +479,100 @@ main {
     background 0.14s var(--ease),
     border-color 0.14s var(--ease);
 }
-.filters button:not(.all-filters):hover {
+
+#filterOptions button:hover,
+#sortOptions button:hover {
   transform: translateY(-2px);
   border-color: rgba(17, 17, 17, 0.22);
   background: var(--soft);
 }
-.filters button.is-active {
-  background: var(--ink) !important;
-  color: #fff !important;
-  border-color: var(--ink) !important;
+
+#filterOptions button.is-active,
+#sortOptions button.is-active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+/* =========================
+   Shop Nyheder
+========================= */
+.news {
+  padding: 32px 0 32px;
+  background: #fff;
+}
+
+.news-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.news-link {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.6);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.25);
+  padding-bottom: 2px;
+}
+
+.news-link:hover {
+  color: rgba(17, 17, 17, 0.9);
+  border-bottom-color: rgba(17, 17, 17, 0.45);
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.news-card {
+  display: grid;
+  gap: 10px;
+  color: inherit;
+}
+
+.news-media {
+  aspect-ratio: 3 / 4;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f5f5f5;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+}
+
+.news-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.news-card:hover .news-media img {
+  transform: scale(1.04);
+}
+
+.news-name {
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0;
+}
+
+.news-price {
+  font-size: 13px;
+  opacity: 0.75;
+  margin: 0;
 }
 
 /* =========================
    Product list cards
-   ========================= */
+========================= */
 .product_list_container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -412,11 +585,12 @@ main {
   border: 1px solid var(--line);
   background: #fff;
   overflow: hidden;
-  position: relative; /* badges kun i kort */
+  position: relative;
   transition:
     transform 0.14s var(--ease),
     box-shadow 0.14s var(--ease);
 }
+
 .product-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow);
@@ -427,6 +601,7 @@ main {
   background: var(--soft);
   overflow: hidden;
 }
+
 .product-media img {
   width: 100%;
   height: 100%;
@@ -434,6 +609,7 @@ main {
   transform: scale(1.01);
   transition: transform 0.25s var(--ease);
 }
+
 .product-card:hover .product-media img {
   transform: scale(1.07);
 }
@@ -443,6 +619,7 @@ main {
   display: grid;
   gap: 0.35rem;
 }
+
 .product-name {
   margin: 0;
   font-weight: 950;
@@ -451,6 +628,7 @@ main {
   line-height: 1.15;
   font-size: 1rem;
 }
+
 .product-meta {
   margin: 0;
   color: var(--muted);
@@ -463,24 +641,10 @@ main {
   align-items: baseline;
   margin-top: 0.2rem;
 }
+
 .price {
   font-weight: 950;
   letter-spacing: -0.2px;
-}
-.price.old {
-  color: rgba(17, 17, 17, 0.42);
-  text-decoration: line-through;
-  font-weight: 800;
-}
-
-.card-actions {
-  display: flex;
-  gap: 0.6rem;
-  margin-top: 0.7rem;
-}
-.card-actions .btn {
-  width: 100%;
-  padding: 0.68rem 0.9rem;
 }
 
 /* Badges */
@@ -492,6 +656,7 @@ main {
   gap: 0.45rem;
   z-index: 2;
 }
+
 .badge {
   font-size: 0.72rem;
   font-weight: 950;
@@ -506,8 +671,8 @@ main {
 }
 
 /* =========================
-   Product detail
-   ========================= */
+   Product page
+========================= */
 .details-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -521,10 +686,12 @@ main {
   border: 1px solid var(--line);
   background: #fff;
 }
+
 .gallery-main {
   aspect-ratio: 4 / 3;
   background: var(--soft);
 }
+
 .gallery-main img {
   width: 100%;
   height: 100%;
@@ -541,7 +708,7 @@ main {
 
 .thumb {
   width: 86px;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -551,10 +718,12 @@ main {
     transform 0.14s var(--ease),
     box-shadow 0.14s var(--ease);
 }
+
 .thumb:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
 }
+
 .thumb img {
   width: 100%;
   height: 100%;
@@ -578,6 +747,14 @@ main {
   letter-spacing: -0.7px;
   text-transform: uppercase;
 }
+.section-head h2,
+.news-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin: 0;
+}
 .panel .brandline {
   margin: 0 0 0.9rem;
   color: var(--muted);
@@ -596,16 +773,19 @@ main {
   border: 1px solid var(--line);
   background: var(--soft);
 }
+
 .kv-row {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   font-size: 0.95rem;
 }
+
 .kv-row .k {
   color: var(--muted);
   font-weight: 800;
 }
+
 .kv-row .v {
   font-weight: 950;
 }
@@ -626,12 +806,14 @@ main {
   border: 1px solid var(--line);
   background: #fff;
 }
+
 .select label {
   font-weight: 950;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-size: 0.82rem;
 }
+
 .select select {
   width: 175px;
   padding: 0.6rem 0.7rem;
@@ -641,46 +823,57 @@ main {
 }
 
 /* =========================
-   FOOTER
-   ========================= */
+   Footer
+========================= */
+
 .site-footer {
-  margin-top: 68px;
-  padding: 28px 0;
+  width: 100%;
+  margin-top: 40px;
+  padding: 36px clamp(16px, 3vw, 32px);
   border-top: 1px solid var(--line);
   background: #fff;
 }
 
-.site-footer .footer-inner {
+.footer-inner {
+  width: 100%;
   display: grid;
   grid-template-columns: 1.2fr 1fr 1.4fr;
-  gap: 24px;
+  gap: 28px;
   align-items: start;
 }
 
+/* venstre */
 .footer-copy {
   color: rgba(17, 17, 17, 0.55);
   font-size: 12px;
+  margin-top: 6px;
 }
 
+/* links */
 .footer-links {
   display: grid;
   gap: 10px;
 }
+
 .footer-links a {
   color: rgba(17, 17, 17, 0.72);
   font-size: 13px;
+  text-decoration: none;
 }
+
 .footer-links a:hover {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
+/* newsletter */
 .footer-form {
   background: var(--soft);
   border: 1px solid var(--line);
   border-radius: 18px;
-  padding: 14px;
+  padding: 16px;
 }
+
 .footer-label {
   display: block;
   font-size: 12px;
@@ -692,6 +885,7 @@ main {
   display: flex;
   gap: 10px;
 }
+
 .footer-field input {
   flex: 1;
   height: 44px;
@@ -701,33 +895,39 @@ main {
   padding: 0 12px;
   font-size: 13px;
 }
+
 .footer-btn {
   height: 44px;
-  padding: 0 14px;
+  padding: 0 16px;
   border-radius: 14px;
   border: 1px solid var(--ink);
   background: var(--ink);
   color: #fff;
   font-weight: 950;
   cursor: pointer;
+  transition:
+    transform 0.14s var(--ease),
+    box-shadow 0.14s var(--ease);
 }
+
 .footer-btn:hover {
   box-shadow: var(--shadow-sm);
   transform: translateY(-1px);
 }
+
 .footer-hint {
   margin: 10px 0 0;
   font-size: 12px;
   color: rgba(17, 17, 17, 0.55);
 }
-
 /* =========================
-   RESPONSIVE
-   ========================= */
+   Responsive
+========================= */
 @media (max-width: 980px) {
   .details-grid {
     grid-template-columns: 1fr;
   }
+
   .panel {
     position: static;
   }
@@ -735,20 +935,27 @@ main {
   .category-card {
     grid-column: span 6;
   }
+
   .product-card {
     grid-column: span 6;
+  }
+
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .site-footer .footer-inner {
     grid-template-columns: 1fr;
   }
 }
+
 @media (max-width: 560px) {
   .category-card {
     grid-column: span 12;
     min-height: 105px;
     padding: 1.15rem 1.2rem;
   }
+
   .product-card {
     grid-column: span 12;
   }
@@ -756,7 +963,14 @@ main {
   .search {
     display: none;
   }
+
   .footer-field {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .news-grid {
+    grid-template-columns: 1fr;
   }
 }

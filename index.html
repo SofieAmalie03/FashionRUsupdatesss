@@ -12,7 +12,7 @@
     <a class="skip-link" href="#content">Spring til indhold</a>
 
     <header class="site-header" role="banner">
-      <div class="container header-inner">
+      <div class="header-inner">
         <a class="brand" href="./index.html" aria-label="FashionRUs Home">
           <div class="logo">Fashion<span class="r">R</span>Us</div>
         </a>
@@ -29,7 +29,7 @@
     <section class="hero" aria-label="Hero">
       <img
         src="./img/ChatGPT Image 4. mar. 2026, 11.40.49.png"
-        alt="Active family hero"
+        alt="Familie i skandinavisk fashion"
       />
 
       <div class="hero-overlay">
@@ -44,10 +44,14 @@
           <a href="#categories" class="btn ghost">Explore</a>
         </div>
       </div>
+
+      <a class="discover discover-light hero-discover" href="#categories"
+        >DISCOVER</a
+      >
     </section>
 
-    <!-- KATEGORIER -->
     <main id="content" class="container">
+      <!-- KATEGORIER -->
       <div id="categories" class="section-head">
         <h2>Kategorier</h2>
       </div>
@@ -56,16 +60,59 @@
         class="category_list_container categoryList"
         aria-label="Kategorier"
       ></section>
+
+      <!-- SHOP NYHEDER -->
+      <section class="news" aria-label="Shop nyheder">
+        <div class="news-head">
+          <h2 class="news-title">SHOP NYHEDER</h2>
+          <a class="news-link" href="./productlist.html">Udforsk alle</a>
+        </div>
+
+        <div class="news-grid" id="newsGrid"></div>
+      </section>
     </main>
 
     <footer class="site-footer" aria-label="Footer">
       <div class="container footer-inner">
-        <div>
+        <div class="footer-left">
           <div class="footer-brand">Fashion<span class="r">R</span>Us</div>
           <small class="footer-copy"
             >© FashionRUs — Mode til hele familien</small
           >
         </div>
+
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="./index.html">Om os</a>
+          <a href="./productlist.html">Job/Karriere</a>
+          <a href="./product.html">Levering og Retur</a>
+          <a href="#">Kontakt</a>
+        </nav>
+
+        <form
+          class="footer-form"
+          action="#"
+          method="post"
+          aria-label="Newsletter"
+        >
+          <label class="footer-label" for="newsletter">
+            Tilmeld dig vores nyhedsbrev og få besked, når vi lancerer nye
+            styles og favoritter.
+          </label>
+
+          <div class="footer-field">
+            <input
+              id="newsletter"
+              type="email"
+              placeholder="Din email"
+              autocomplete="email"
+            />
+            <button type="submit" class="footer-btn" aria-label="Tilmeld">
+              Tilmeld
+            </button>
+          </div>
+
+          <p class="footer-hint">Ingen spam — kun når der er noget nyt.</p>
+        </form>
       </div>
     </footer>
   </body>

@@ -12,7 +12,7 @@
     <a class="skip-link" href="#content">Spring til indhold</a>
 
     <header class="site-header" role="banner">
-      <div class="container header-inner">
+      <div class="header-inner">
         <a class="brand" href="./index.html" aria-label="FashionRUs Home">
           <div class="logo">Fashion<span class="r">R</span>Us</div>
         </a>
@@ -31,16 +31,43 @@
         <p class="hint" id="pageHint"></p>
       </div>
 
-      <div class="filters">
-        <button type="button" id="toggleFilters" class="all-filters">
-          Alle filtre
-        </button>
+      <div class="controls-row" aria-label="Filtrer og sorter produkter">
+        <div class="filters" aria-label="Filtrer produkter">
+          <button
+            id="toggleFilters"
+            type="button"
+            aria-expanded="false"
+            aria-controls="filterOptions"
+          >
+            Alle filtre
+          </button>
 
-        <div class="filter-options" id="filterOptions" aria-label="Filtre">
-          <button type="button">All</button>
-          <button type="button">Unisex</button>
-          <button type="button">Women</button>
-          <button type="button">Men</button>
+          <div id="filterOptions" hidden>
+            <button type="button">All</button>
+            <button type="button">Unisex</button>
+            <button type="button">Women</button>
+            <button type="button">Men</button>
+          </div>
+        </div>
+
+        <div class="sort" aria-label="Sortér produkter">
+          <button
+            id="toggleSort"
+            type="button"
+            aria-expanded="false"
+            aria-controls="sortOptions"
+          >
+            Sortér efter
+          </button>
+
+          <div id="sortOptions" hidden>
+            <button type="button" data-sort="name-az">Navn: A–Z</button>
+            <button type="button" data-sort="name-za">Navn: Z–A</button>
+            <button type="button" data-sort="price-asc">Pris: lav → høj</button>
+            <button type="button" data-sort="price-desc">
+              Pris: høj → lav
+            </button>
+          </div>
         </div>
       </div>
 
